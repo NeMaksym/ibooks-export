@@ -9,8 +9,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 def get_token(email, password):
     try:
-        # Initialize browser
-        driver = webdriver.Chrome(ChromeDriverManager().install())
+        # Initialize driver
+        opts = webdriver.ChromeOptions()
+        opts.add_argument('--headless')
+        opts.add_argument('--no-sandbox')
+        opts.add_argument('--disable-dev-shm-usage')
+        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=opts)
         wait = WebDriverWait(driver, 10)
 
         # Go to login page
