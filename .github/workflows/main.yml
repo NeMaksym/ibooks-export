@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy & Build
 
 on:
   push:
@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repo
+      - name: Clone & Install packages
         uses: appleboy/ssh-action@v0.1.2
         with:
           host: ${{secrets.SSH_HOST}}
@@ -16,4 +16,6 @@ jobs:
           username: ${{secrets.SSH_USERNAME}}
      
           script: |
+            source ./venv/bin/activate
             git clone git@github.com-repo-0:NeMaksym/ibooks-export-be.git
+            pip install -r requirements.txt
