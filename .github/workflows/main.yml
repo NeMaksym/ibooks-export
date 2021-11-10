@@ -16,6 +16,7 @@ jobs:
           username: ${{secrets.SSH_USERNAME}}
      
           script: |
+            rm -rf ibooks-export-be
+            git clone git@github.com-repo-0:NeMaksym/ibooks-export-be.git
             source ./venv/bin/activate
-            git pull git@github.com-repo-0:NeMaksym/ibooks-export-be.git
             pip install -r ibooks-export-be/requirements.txt
