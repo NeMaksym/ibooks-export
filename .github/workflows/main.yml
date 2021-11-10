@@ -16,6 +16,6 @@ jobs:
           username: ${{secrets.SSH_USERNAME}}
      
           script: |
-            mkdir ibooks-export && cd "$_"
-            git clone git@github.com:NeMaksym/ibooks-export-be.git 
-            
+            mkdir -p ibooks-export && cd "$_"
+            git clone git@github.com-repo-0:NeMaksym/ibooks-export-be.git 
+
