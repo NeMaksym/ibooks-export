@@ -96,11 +96,9 @@ try:
 
         # Success
         utils.save_to_log(f"SUCCESS")
-        content = f'''
-            Words provided: {len(words)}\n"
-            Found of them in Skyeng dictionary: {len(meanings)}\n
-            Word set name: "{title}"
-        '''
+        content = f'Words provided: {len(words)}\r\n' \
+                  f'Found of them in Skyeng dictionary: {len(meanings)}\r\n' \
+                  f'Word set name: "{title}"'
         utils.send_email(to=incoming_email, content=content, status=1)
 
         # Delete successfully processed email

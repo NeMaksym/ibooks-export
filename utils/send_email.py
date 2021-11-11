@@ -12,6 +12,7 @@ def send_email(to, content, status=0):
         msg['Subject'] = "Export is successful" if status == 1 else "Export error"
         msg['From'] = os.environ["GMAIL_EMAIL"]
         msg['To'] = to
+        msg['Content-Type'] = "text/plain"
 
         server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
         server.login(os.environ["GMAIL_EMAIL"], os.environ["GMAIL_PASS"])
